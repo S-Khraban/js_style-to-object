@@ -12,21 +12,19 @@ function convertToObject(sourceString) {
     return stylesMap;
   }
 
-  // Розбиваємо рядок на окремі декларації
   const declarations = sourceString.split(';');
 
   for (let declaration of declarations) {
-    // Прибираємо зайві пробіли/переноси
     declaration = declaration.trim();
 
     if (!declaration) {
-      continue; // пропускаємо пусті
+      continue;
     }
 
     const colonIndex = declaration.indexOf(':');
 
     if (colonIndex === -1) {
-      continue; // не валідний запис без ':'
+      continue;
     }
 
     const property = declaration.slice(0, colonIndex).trim();
